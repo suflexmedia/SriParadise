@@ -227,6 +227,7 @@ button { cursor: none; }
     flex-direction: column;
     justify-content: center;
     padding: 120px 80px 60px;
+    zoom: 0.8;
 }
 
 .menu-links {
