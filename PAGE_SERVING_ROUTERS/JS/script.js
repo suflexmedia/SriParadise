@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animateCursor();
     }
 
-    const hoverTargets = document.querySelectorAll('a, button, .gallery-card, .narrative-card, .visionary-card');
+    const hoverTargets = document.querySelectorAll('a, button, .gallery-card, .narrative-card, .opportunity-block, .capital-card, .associate-item, .theme-block');
     hoverTargets.forEach(el => {
         el.addEventListener('mouseenter', () => {
             if (cursorDot) cursorDot.classList.add('hovering');

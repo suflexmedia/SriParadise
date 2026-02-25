@@ -58,7 +58,7 @@ if config.DEBUG:
 app.mount("/css", StaticFiles(directory="PAGE_SERVING_ROUTERS/CSS"), name="css")
 # app.mount("/fonts", StaticFiles(directory="PAGE_SERVING_ROUTERS/FONTS"), name="fonts")
 # app.mount("/icons", StaticFiles(directory="PAGE_SERVING_ROUTERS/ICONS"), name="icons")
-# app.mount("/images", StaticFiles(directory="PAGE_SERVING_ROUTERS/IMAGES"), name="images")
+app.mount("/images", StaticFiles(directory="PAGE_SERVING_ROUTERS/IMAGES"), name="images")
 app.mount("/js", StaticFiles(directory="PAGE_SERVING_ROUTERS/JS"), name="js")
 
 # Include Page Serving Routers
