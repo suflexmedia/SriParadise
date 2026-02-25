@@ -120,8 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
     function setupHorizontalGallery() {
         if (!horizontalGallery || !galleryTrack) return;
+        if (isMobile()) {
+            horizontalGallery.style.height = '';
+            galleryTrack.style.transform = '';
+            return;
+        }
         const trackWidth = galleryTrack.scrollWidth;
         const viewWidth = window.innerWidth;
         const scrollDistance = trackWidth - viewWidth + 160;
@@ -130,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleHorizontalScroll() {
         if (!horizontalGallery || !galleryTrack) return;
+        if (isMobile()) return;
 
         const rect = horizontalGallery.getBoundingClientRect();
         const galleryHeight = horizontalGallery.offsetHeight;

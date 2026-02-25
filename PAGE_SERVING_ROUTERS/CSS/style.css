@@ -137,7 +137,9 @@ button { cursor: none; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0;
+    padding: 12px 6px;
+    box-sizing: content-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-hamburger span {
@@ -198,13 +200,16 @@ button { cursor: none; }
     inset: 0;
     z-index: 999;
     pointer-events: none;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 0.5s;
+    transition: opacity 0.5s, visibility 0s 0.5s;
 }
 
 .fullscreen-menu.open {
     pointer-events: all;
+    visibility: visible;
     opacity: 1;
+    transition: opacity 0.5s, visibility 0s 0s;
 }
 
 .menu-bg {
@@ -222,12 +227,14 @@ button { cursor: none; }
 
 .menu-content {
     position: relative;
+    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 120px 80px 60px;
-    zoom: 0.8;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu-links {
@@ -1894,10 +1901,6 @@ body.loaded .letterbox-bottom {
         justify-content: center;
     }
 
-    .gallery-card {
-        width: 360px;
-    }
-
     .footer-nav {
         gap: 40px;
     }
@@ -1917,10 +1920,12 @@ body.loaded .letterbox-bottom {
 
     .nav {
         padding: 20px 24px;
+        padding-top: calc(20px + env(safe-area-inset-top, 0px));
     }
 
     .nav.scrolled {
         padding: 14px 24px;
+        padding-top: calc(14px + env(safe-area-inset-top, 0px));
     }
 
     .nav-menu-text {
@@ -1945,6 +1950,11 @@ body.loaded .letterbox-bottom {
         letter-spacing: 3px;
     }
 
+    .heading-line {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
     .heading-word {
         font-size: clamp(1.8rem, 7vw, 3rem) !important;
     }
@@ -1957,13 +1967,32 @@ body.loaded .letterbox-bottom {
         padding: 0 24px 60px;
     }
 
+    .destinations {
+        padding: 80px 0;
+    }
+
+    .horizontal-gallery {
+        height: auto !important;
+    }
+
     .gallery-track {
-        left: 24px;
-        padding-right: 24px;
+        position: relative;
+        top: auto;
+        height: auto;
+        flex-direction: column;
+        gap: 24px;
+        padding: 0 24px;
+        transform: none !important;
+        will-change: auto;
     }
 
     .gallery-card {
-        width: 300px;
+        width: 100%;
+        flex-shrink: 1;
+    }
+
+    .gallery-card:hover {
+        transform: none;
     }
 
     .card-image-wrap {
@@ -2052,7 +2081,11 @@ body.loaded .letterbox-bottom {
     }
 
     .platforms-grid {
-        padding: 40px 24px 0;
+        padding: 40px 16px 0;
+    }
+
+    .narrative-card {
+        padding: 24px 20px;
     }
 
     .premiere {
@@ -2064,16 +2097,28 @@ body.loaded .letterbox-bottom {
     }
 
     .menu-content {
-        padding: 120px 24px 40px;
+        padding: 100px 24px 40px;
+        justify-content: flex-start;
+        padding-top: calc(80px + env(safe-area-inset-top, 0px));
+    }
+
+    .menu-links {
+        gap: 4px;
+        flex: 1;
+        justify-content: center;
     }
 
     .menu-link {
         font-size: clamp(2rem, 8vw, 3.5rem);
+        padding: 4px 0;
     }
 
     .menu-footer {
         flex-direction: column;
         gap: 16px;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        flex-shrink: 0;
+        margin-top: 32px;
     }
 
     .menu-info,
@@ -2109,9 +2154,28 @@ body.loaded .letterbox-bottom {
 }
 
 @media (max-width: 480px) {
+    .nav {
+        padding: 16px 16px;
+    }
+
+    .nav.scrolled {
+        padding: 12px 16px;
+    }
+
+    .nav-logo {
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .nav-reserve {
+        padding: 8px 14px;
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
     .heading-line {
-        flex-direction: column;
-        gap: 0;
+        flex-wrap: wrap;
+        gap: 4px;
     }
 
     .heading-word {
@@ -2131,12 +2195,40 @@ body.loaded .letterbox-bottom {
         justify-content: center;
     }
 
-    .gallery-card {
-        width: 260px;
+    .menu-content {
+        padding: 80px 20px 24px;
+        padding-top: calc(70px + env(safe-area-inset-top, 0px));
     }
 
-    .nav-reserve {
-        padding: 8px 16px;
-        font-size: 0.6rem;
+    .menu-links {
+        gap: 2px;
+    }
+
+    .menu-link {
+        font-size: clamp(1.6rem, 7vw, 2.5rem);
+        letter-spacing: 3px;
+        gap: 12px;
+        padding: 6px 0;
+    }
+
+    .menu-link::before {
+        font-size: 0.65rem;
+    }
+
+    .menu-footer {
+        margin-top: 24px;
+    }
+
+    .menu-info span,
+    .menu-social span {
+        font-size: 0.7rem;
+    }
+
+    .platforms-grid {
+        padding: 32px 12px 0;
+    }
+
+    .narrative-card {
+        padding: 20px 16px;
     }
 }
