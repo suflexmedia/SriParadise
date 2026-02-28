@@ -441,11 +441,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     stopAutoScroll();
                 }
                 return autoScrollActive;
+            },
+            getContainer: function () {
+                return document.getElementById(carouselId);
             }
         };
     }
 
-    // Initialize home page carousel (if present)
+    function setupFullscreenToggle(btnId, carouselInstance) {
+        const btn = document.getElementById(btnId);
+        if (!btn || !carouselInstance) return;
+
+        btn.addEventListener('click', () => {
+            const container = carouselInstance.getContainer();
+            if (!container) return;
+
+            const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+            if (isFullscreen) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+            } else {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                }
+            }
+        });
+    }
+
     const homeCarousel = initPDFCarousel('productionsCarousel', {
         prefix: 'carousel',
         autoScroll: true,
@@ -453,7 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: 1.5
     });
 
-    // Initialize productions page deck carousel (if present)
     const deckCarousel = initPDFCarousel('deckCarousel', {
         prefix: 'deck',
         autoScroll: true,
@@ -461,7 +487,9 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: 2
     });
 
-    // Auto-scroll toggle button for productions page
+    setupFullscreenToggle('carouselFullscreen', homeCarousel);
+    setupFullscreenToggle('deckFullscreen', deckCarousel);
+
     const deckAutoToggle = document.getElementById('deckAutoToggle');
     if (deckAutoToggle && deckCarousel) {
         deckAutoToggle.addEventListener('click', () => {
