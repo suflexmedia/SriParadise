@@ -31,7 +31,19 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://www.sriiparadiise.com/productions</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://www.sriiparadiise.com/founder</loc>
+        <lastmod>2026-02-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.sriiparadiise.com/leadership-hospitality</loc>
         <lastmod>2026-02-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>

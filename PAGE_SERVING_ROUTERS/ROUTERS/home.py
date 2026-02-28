@@ -47,6 +47,11 @@ async def terms():
     return FileResponse(os.path.join(PAGES_DIR, "terms.html"))
 
 
+@router.get("/leadership-hospitality")
+async def leadership_hospitality():
+    return FileResponse(os.path.join(PAGES_DIR, "leadership-hospitality.html"))
+
+
 @router.get("/productions")
 async def productions():
     return FileResponse(os.path.join(PAGES_DIR, "productions.html"))

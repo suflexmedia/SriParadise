@@ -267,6 +267,8 @@ button { cursor: none; }
 .fullscreen-menu.open .menu-link:nth-child(4) { transition-delay: 0.3s; }
 .fullscreen-menu.open .menu-link:nth-child(5) { transition-delay: 0.35s; }
 .fullscreen-menu.open .menu-link:nth-child(6) { transition-delay: 0.4s; }
+.fullscreen-menu.open .menu-link:nth-child(7) { transition-delay: 0.45s; }
+.fullscreen-menu.open .menu-link:nth-child(8) { transition-delay: 0.5s; }
 
 .menu-link::before {
     content: attr(data-index);
@@ -1774,6 +1776,8 @@ body.loaded .letterbox-bottom {
     max-width: 1000px;
     margin: 0 auto;
     align-items: start;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .founder-photo {
