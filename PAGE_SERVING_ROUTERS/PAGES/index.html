@@ -4,12 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Srii Paradiise — Cinematic Reel</title>
+    <title>Srii Paradiise — A Global Hospitality & Entertainment Enterprise</title>
+    <meta name="description" content="Srii Paradiise is a global hospitality and entertainment enterprise headquartered in Singapore, operating across 8 countries and 6 continents. Class-apart experiences. Enduring global assets.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.sriiparadiise.com/">
+    <link rel="sitemap" type="application/xml" href="https://www.sriiparadiise.com/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Srii Paradiise — A Global Hospitality & Entertainment Enterprise">
+    <meta property="og:description" content="Class-apart experiences. Enduring global assets. Operating across 8 countries and 6 continents worldwide.">
+    <meta property="og:url" content="https://www.sriiparadiise.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Srii Paradiise — A Global Hospitality & Entertainment Enterprise">
+    <meta name="twitter:description" content="Class-apart experiences. Enduring global assets. Operating across 8 countries and 6 continents worldwide.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Srii Paradiise",
+        "url": "https://www.sriiparadiise.com",
+        "description": "A global hospitality and entertainment enterprise headquartered in Singapore",
+        "foundingDate": "2024",
+        "founder": {
+            "@type": "Person",
+            "name": "Arjun Prakashh",
+            "jobTitle": "Founder, Chairman & Managing Director"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "10 UBI Crescent, #05-60, UBI Techpark, Lobby D",
+            "addressLocality": "Singapore",
+            "postalCode": "408564",
+            "addressCountry": "SG"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+65-9898-2570",
+            "email": "arjun@sriiparadiise.com",
+            "contactType": "customer service"
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -36,12 +83,13 @@
         <div class="menu-bg"></div>
         <div class="menu-content">
             <div class="menu-links">
-                <a href="#narrative" class="menu-link" data-index="01">Our Story</a>
-                <a href="#destinations" class="menu-link" data-index="02">Destinations</a>
-                <a href="#opportunity" class="menu-link" data-index="03">Opportunity</a>
-                <a href="#associates" class="menu-link" data-index="04">Associates</a>
-                <a href="#founder" class="menu-link" data-index="05">Founder</a>
-                <a href="#premiere" class="menu-link" data-index="06">Contact</a>
+                <a href="/about" class="menu-link" data-index="01">Our Story</a>
+                <a href="/destinations" class="menu-link" data-index="02">Destinations</a>
+                <a href="/opportunity" class="menu-link" data-index="03">Opportunity</a>
+                <a href="/associates" class="menu-link" data-index="04">Associates</a>
+                <a href="/productions" class="menu-link" data-index="05">Productions</a>
+                <a href="/founder" class="menu-link" data-index="06">Founder</a>
+                <a href="#premiere" class="menu-link" data-index="07">Contact</a>
             </div>
             <div class="menu-footer">
                 <div class="menu-info">
@@ -557,16 +605,62 @@
         </div>
     </section>
 
+    <section id="productions" class="productions-section">
+        <div class="productions-header" data-reveal>
+            <span class="section-index">06</span>
+            <h2 class="section-heading">MOVIE & WEB SERIES PRODUCTION</h2>
+            <p class="section-sub">In partnership with Mind Benderz Media — delivering excellent quality & content-driven web series for Netflix, Amazon, Zee5, Jio Hotstar, and more.</p>
+        </div>
+
+        <div class="productions-carousel-wrap" data-reveal>
+            <div class="productions-carousel" id="productionsCarousel">
+                <div class="carousel-viewport" id="carouselViewport">
+                    <div class="carousel-track" id="carouselTrack">
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous page">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next page">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <div class="carousel-counter" id="carouselCounter">1 / —</div>
+            </div>
+
+            <div class="productions-info">
+                <div class="productions-badge">
+                    <span class="badge-label">Business Associate</span>
+                    <span class="badge-name">MIND BENDERZ MEDIA</span>
+                </div>
+                <p class="productions-desc">Mind Benderz Media is a close business associate and integral part of Srii Paradiise Studioos, dedicated to the production of excellent quality & content-driven web series for multiple OTT platforms including Netflix, Amazon, Zee5, Jio Hotstar, and others — both in India and overseas.</p>
+                <div class="productions-platforms">
+                    <span class="platform-tag">Netflix</span>
+                    <span class="platform-tag">Amazon Prime</span>
+                    <span class="platform-tag">Zee5</span>
+                    <span class="platform-tag">Jio Hotstar</span>
+                    <span class="platform-tag">& More</span>
+                </div>
+                <a href="/productions" class="btn-primary productions-cta">
+                    <span class="btn-text">View Full Presentation</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section id="founder" class="founder-section">
         <div class="founder-header" data-reveal>
-            <span class="section-index">06</span>
+            <span class="section-index">07</span>
             <h2 class="section-heading">MEET THE FOUNDER</h2>
         </div>
         <div class="founder-content">
             <div class="founder-image" data-reveal>
-                <div class="visionary-placeholder" style="background: linear-gradient(135deg, #2a0a09, #1a0505)">
-                    <span>AP</span>
-                </div>
+                <img src="/images/owner.png" alt="Arjun Prakashh — Founder, Chairman & Managing Director of Srii Paradiise" class="founder-photo">
             </div>
             <div class="founder-bio" data-reveal>
                 <h3 class="founder-name">Arjun Prakashh</h3>
@@ -601,7 +695,7 @@
     <section id="premiere" class="premiere">
         <div class="premiere-content" data-reveal>
             <div class="premiere-left">
-                <span class="section-index">07</span>
+                <span class="section-index">08</span>
                 <h2 class="premiere-heading">YOUR STORY<br>BEGINS HERE</h2>
                 <p class="premiere-sub">Reserve your premiere experience at any of our global destinations.</p>
             </div>
@@ -658,8 +752,9 @@
             <div class="footer-nav">
                 <div class="footer-col">
                     <h4>Divisions</h4>
-                    <a href="#">International Hotels & Resorts</a>
-                    <a href="#">International Studios</a>
+                    <a href="/about">International Hotels & Resorts</a>
+                    <a href="/about">International Studios</a>
+                    <a href="/productions">Productions</a>
                 </div>
                 <div class="footer-col">
                     <h4>Contact</h4>
@@ -678,13 +773,18 @@
         <div class="footer-bottom">
             <span>&copy; 2026 Srii Paradiise. All rights reserved.</span>
             <div class="footer-legal">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Careers</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        if (window.pdfjsLib) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
     <script src="/js/script.js"></script>
 </body>
 

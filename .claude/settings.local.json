@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(cd D:\\\\Programming\\\\Projects\\\\suhas_medam\\\\SriParadise\\\\PAGE_SERVING_ROUTERS\\\\IMAGES\\\\logos:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(python:*)",
+      "Bash(ls:*)"
     ]
   }
 }

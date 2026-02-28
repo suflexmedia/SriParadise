@@ -97,9 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         fullscreenMenu.querySelectorAll('.menu-link').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                fullscreenMenu.classList.remove('open');
-                document.body.classList.remove('menu-open');
+                const href = link.getAttribute('href');
+                // Only close menu immediately for hash links on the same page
+                if (href.startsWith('#')) {
+                    hamburger.classList.remove('active');
+                    fullscreenMenu.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                }
+                // For page navigation links, menu will close on page load
             });
         });
     }
@@ -251,5 +256,218 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         setupHorizontalGallery();
     });
+
+    // ================================
+    // PDF Carousel System
+    // ================================
+
+    const PDF_URL = '/images/Mind Benderz-Srii Paradiise Studioos Media Deck - 24th Feb 2026.pdf';
+
+    function initPDFCarousel(carouselId, opts) {
+        const prefix = opts.prefix;
+        const viewport = document.getElementById(prefix + 'Viewport');
+        const track = document.getElementById(prefix + 'Track');
+        const prevBtn = document.getElementById(prefix + 'Prev');
+        const nextBtn = document.getElementById(prefix + 'Next');
+        const dotsContainer = document.getElementById(prefix + 'Dots');
+        const counter = document.getElementById(prefix + 'Counter');
+
+        if (!viewport || !track) return null;
+
+        // Show loading
+        track.innerHTML = '<div class="carousel-loading">Loading presentation</div>';
+
+        let currentPage = 0;
+        let totalPages = 0;
+        let autoScrollInterval = null;
+        let autoScrollActive = opts.autoScroll !== false;
+        let touchStartX = 0;
+        let touchDiffX = 0;
+        let isDragging = false;
+
+        function goToPage(index) {
+            if (index < 0) index = totalPages - 1;
+            if (index >= totalPages) index = 0;
+            currentPage = index;
+            track.style.transform = 'translateX(-' + (currentPage * 100) + '%)';
+
+            // Update dots
+            if (dotsContainer) {
+                dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentPage);
+                });
+            }
+
+            // Update counter
+            if (counter) {
+                counter.textContent = (currentPage + 1) + ' / ' + totalPages;
+            }
+        }
+
+        function startAutoScroll() {
+            stopAutoScroll();
+            if (!autoScrollActive) return;
+            autoScrollInterval = setInterval(() => {
+                goToPage(currentPage + 1);
+            }, opts.interval || 5000);
+        }
+
+        function stopAutoScroll() {
+            if (autoScrollInterval) {
+                clearInterval(autoScrollInterval);
+                autoScrollInterval = null;
+            }
+        }
+
+        function renderPDF(pdf) {
+            totalPages = pdf.numPages;
+            track.innerHTML = '';
+
+            // Create slides
+            const renderPromises = [];
+            for (let i = 1; i <= totalPages; i++) {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                const canvas = document.createElement('canvas');
+                slide.appendChild(canvas);
+                track.appendChild(slide);
+
+                renderPromises.push(
+                    pdf.getPage(i).then(page => {
+                        const baseScale = opts.scale || 2;
+                        const pdfViewport = page.getViewport({ scale: baseScale });
+                        canvas.width = pdfViewport.width;
+                        canvas.height = pdfViewport.height;
+                        const ctx = canvas.getContext('2d');
+                        return page.render({ canvasContext: ctx, viewport: pdfViewport }).promise;
+                    })
+                );
+            }
+
+            Promise.all(renderPromises).then(() => {
+                // Build dots
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalPages; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                        dot.setAttribute('aria-label', 'Page ' + (i + 1));
+                        dot.addEventListener('click', () => {
+                            goToPage(i);
+                            stopAutoScroll();
+                            startAutoScroll();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
+                // Update counter
+                if (counter) {
+                    counter.textContent = '1 / ' + totalPages;
+                }
+
+                // Start auto-scroll
+                startAutoScroll();
+            });
+        }
+
+        // Nav buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                goToPage(currentPage - 1);
+                stopAutoScroll();
+                startAutoScroll();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                goToPage(currentPage + 1);
+                stopAutoScroll();
+                startAutoScroll();
+            });
+        }
+
+        // Touch/swipe support
+        viewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            isDragging = true;
+            stopAutoScroll();
+        }, { passive: true });
+
+        viewport.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            touchDiffX = e.touches[0].clientX - touchStartX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            if (Math.abs(touchDiffX) > 50) {
+                if (touchDiffX < 0) {
+                    goToPage(currentPage + 1);
+                } else {
+                    goToPage(currentPage - 1);
+                }
+            }
+            touchDiffX = 0;
+            startAutoScroll();
+        });
+
+        // Pause on hover (desktop)
+        viewport.addEventListener('mouseenter', stopAutoScroll);
+        viewport.addEventListener('mouseleave', () => {
+            if (autoScrollActive) startAutoScroll();
+        });
+
+        // Load PDF
+        if (window.pdfjsLib) {
+            pdfjsLib.getDocument(PDF_URL).promise.then(renderPDF).catch(() => {
+                track.innerHTML = '<div class="carousel-loading" style="color:var(--amber)">Unable to load presentation</div>';
+            });
+        } else {
+            track.innerHTML = '<div class="carousel-loading" style="color:var(--amber)">PDF viewer unavailable</div>';
+        }
+
+        return {
+            goToPage,
+            startAutoScroll,
+            stopAutoScroll,
+            toggleAutoScroll: function () {
+                autoScrollActive = !autoScrollActive;
+                if (autoScrollActive) {
+                    startAutoScroll();
+                } else {
+                    stopAutoScroll();
+                }
+                return autoScrollActive;
+            }
+        };
+    }
+
+    // Initialize home page carousel (if present)
+    const homeCarousel = initPDFCarousel('productionsCarousel', {
+        prefix: 'carousel',
+        autoScroll: true,
+        interval: 5000,
+        scale: 1.5
+    });
+
+    // Initialize productions page deck carousel (if present)
+    const deckCarousel = initPDFCarousel('deckCarousel', {
+        prefix: 'deck',
+        autoScroll: true,
+        interval: 6000,
+        scale: 2
+    });
+
+    // Auto-scroll toggle button for productions page
+    const deckAutoToggle = document.getElementById('deckAutoToggle');
+    if (deckAutoToggle && deckCarousel) {
+        deckAutoToggle.addEventListener('click', () => {
+            const isPlaying = deckCarousel.toggleAutoScroll();
+            deckAutoToggle.classList.toggle('paused', !isPlaying);
+        });
+    }
 
 });
