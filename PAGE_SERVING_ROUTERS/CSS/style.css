@@ -176,12 +176,15 @@ button { cursor: none; }
     transition: opacity 0.3s;
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-logo img {
-    height: 64px;
+    height: 80px;
     width: auto;
-    max-width: 220px;
+    max-width: 260px;
     object-fit: contain;
     display: block;
 }
@@ -1165,11 +1168,11 @@ body.loaded .letterbox-bottom {
 .cinematic-quote cite {
     font-family: var(--font-body);
     font-style: normal;
-    font-size: 0.8rem;
-    font-weight: 300;
+    font-size: 0.85rem;
+    font-weight: 400;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--amber);
+    color: #ffffff;
 }
 
 .visionaries {
@@ -1417,6 +1420,12 @@ body.loaded .letterbox-bottom {
     font-weight: 300;
     color: var(--text-muted);
     line-height: 1.6;
+}
+
+.footer-brand .footer-tagline:last-child {
+    font-style: italic;
+    color: #c8392b;
+    text-align: left;
 }
 
 .footer-nav {
