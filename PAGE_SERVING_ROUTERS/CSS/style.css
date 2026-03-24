@@ -1422,10 +1422,13 @@ body.loaded .letterbox-bottom {
     line-height: 1.6;
 }
 
-.footer-brand .footer-tagline:last-child {
+.footer-tagline-center {
     font-style: italic;
     color: #c8392b;
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 0;
 }
 
 .footer-nav {
