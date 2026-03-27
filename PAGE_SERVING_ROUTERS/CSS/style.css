@@ -312,8 +312,8 @@ button { cursor: none; }
 .menu-footer {
     margin-top: auto;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    align-items: center;
     opacity: 0;
     transition: opacity 0.5s 0.4s;
 }
@@ -326,6 +326,7 @@ button { cursor: none; }
     display: flex;
     align-items: center;
     gap: 12px;
+    order: -1;
 }
 
 .menu-footer-linkedin {
@@ -345,6 +346,7 @@ button { cursor: none; }
 }
 
 .menu-footer-divider {
+    display: block;
     width: 1px;
     height: 14px;
     background: var(--text-muted);
@@ -352,13 +354,6 @@ button { cursor: none; }
 }
 
 .menu-footer-row span {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-}
-
-.menu-footer-phone {
     font-size: 0.8rem;
     font-weight: 300;
     color: var(--text-muted);
@@ -2314,9 +2309,24 @@ body.loaded .letterbox-bottom {
     }
 
     .menu-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
         padding-bottom: env(safe-area-inset-bottom, 0px);
         flex-shrink: 0;
         margin-top: 20px;
+    }
+
+    .menu-footer-row {
+        order: 0;
+    }
+
+    .menu-footer-divider {
+        display: block;
+        width: 1px;
+        height: 14px;
+        background: var(--text-muted);
+        opacity: 0.4;
     }
 
     .footer {
@@ -2498,7 +2508,6 @@ body.loaded .letterbox-bottom {
 
     .menu-footer-row span,
     .menu-footer-linkedin,
-    .menu-footer-phone,
     .menu-footer-location {
         font-size: 0.7rem;
     }
