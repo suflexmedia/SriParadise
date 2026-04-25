@@ -132,39 +132,57 @@ button { cursor: none; }
 .nav-hamburger {
     background: none;
     border: none;
-    width: 32px;
-    height: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 12px 6px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 4px;
     box-sizing: content-box;
+    cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 }
 
-.nav-hamburger span {
+/* Matches both .nav-line (new structure) and bare spans (old structure) */
+.nav-hamburger .nav-line,
+.nav-hamburger span:not(.nav-menu-text) {
     display: block;
-    width: 100%;
-    height: 1px;
+    width: 40px;
+    height: 1.25px;
     background: var(--text);
     transition: all 0.4s var(--ease-out);
     transform-origin: center;
 }
 
-.nav-hamburger.active span:first-child {
-    transform: rotate(45deg) translate(7px, 7px);
-}
-
-.nav-hamburger.active span:last-child {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-.nav-menu-text {
-    font-size: 0.7rem;
+.nav-hamburger .nav-menu-text {
+    font-size: 0.62rem;
     letter-spacing: 3px;
     color: var(--text-muted);
     font-weight: 300;
+    line-height: 1;
+    transition: opacity 0.4s var(--ease-out);
+    user-select: none;
+}
+
+/* Active / close animation — new structure (.nav-line) */
+.nav-hamburger.active .nav-line:first-child {
+    transform: rotate(45deg) translate(4px, 6px);
+}
+.nav-hamburger.active .nav-line:last-child {
+    transform: rotate(-45deg) translate(4px, -6px);
+}
+
+/* Active / close animation — old structure (bare span fallback) */
+.nav-hamburger.active span:not(.nav-menu-text):first-child {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+.nav-hamburger.active span:not(.nav-menu-text):last-child {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-hamburger.active .nav-menu-text {
+    opacity: 0;
 }
 
 .nav-logo {
@@ -2120,10 +2138,6 @@ body.loaded .letterbox-bottom {
     .nav.scrolled {
         padding: 14px 24px;
         padding-top: calc(14px + env(safe-area-inset-top, 0px));
-    }
-
-    .nav-menu-text {
-        display: none;
     }
 
     .nav-logo {
