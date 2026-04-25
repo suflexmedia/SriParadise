@@ -1210,7 +1210,6 @@ body.loaded .letterbox-bottom {
     font-size: clamp(1.8rem, 4vw, 3rem);
     letter-spacing: 2px;
     line-height: 1.3;
-    margin-bottom: 32px;
     color: #ffffff;
 }
 
