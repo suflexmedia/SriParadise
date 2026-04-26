@@ -159,7 +159,7 @@ button { cursor: none; }
     font-size: 0.62rem;
     letter-spacing: 3px;
     color: var(--text-muted);
-    font-weight: 300;
+    font-weight: 550;
     line-height: 1;
     transition: opacity 0.4s var(--ease-out);
     user-select: none;
@@ -354,7 +354,7 @@ button { cursor: none; }
     align-items: center;
     gap: 6px;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     letter-spacing: 1px;
     color: var(--text-muted);
 }
@@ -373,14 +373,14 @@ button { cursor: none; }
 
 .menu-footer-row span {
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     letter-spacing: 1px;
 }
 
 .menu-footer-location {
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     letter-spacing: 1px;
 }
@@ -490,7 +490,7 @@ body.loaded .letterbox-bottom {
 
 .eyebrow-text {
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     letter-spacing: 4px;
     color: #ffffff;
 }
@@ -544,7 +544,7 @@ body.loaded .letterbox-bottom {
 
 .hero-description {
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.8;
     max-width: 480px;
@@ -684,7 +684,7 @@ body.loaded .letterbox-bottom {
     font-size: 0.65rem;
     letter-spacing: 3px;
     color: var(--text-dim);
-    font-weight: 300;
+    font-weight: 550;
 }
 
 .image-marquee {
@@ -729,7 +729,7 @@ body.loaded .letterbox-bottom {
     font-size: 0.55rem;
     letter-spacing: 3px;
     color: var(--text);
-    font-weight: 300;
+    font-weight: 550;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -763,7 +763,7 @@ body.loaded .letterbox-bottom {
 .section-index {
     font-family: var(--font-body);
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     letter-spacing: 4px;
     color: var(--amber);
     display: block;
@@ -778,7 +778,7 @@ body.loaded .letterbox-bottom {
 
 .section-sub {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     max-width: 400px;
     margin: 0 auto;
@@ -864,14 +864,14 @@ body.loaded .letterbox-bottom {
     font-size: 0.75rem;
     letter-spacing: 3px;
     color: var(--amber);
-    font-weight: 300;
+    font-weight: 550;
     text-transform: uppercase;
     margin-bottom: 12px;
 }
 
 .card-desc {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: 16px;
@@ -941,7 +941,7 @@ body.loaded .letterbox-bottom {
 
 .stat-label {
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -1020,7 +1020,7 @@ body.loaded .letterbox-bottom {
 
 .narrative-intro {
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 16px;
@@ -1073,7 +1073,7 @@ body.loaded .letterbox-bottom {
 
 .narrative-card p {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -1164,7 +1164,7 @@ body.loaded .letterbox-bottom {
 
 .timeline-content p {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -1332,7 +1332,7 @@ body.loaded .letterbox-bottom {
 
 .visionary-info p {
     font-size: 0.85rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -1362,7 +1362,7 @@ body.loaded .letterbox-bottom {
 
 .premiere-sub {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -1394,7 +1394,7 @@ body.loaded .letterbox-bottom {
     color: var(--text);
     font-family: var(--font-body);
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     outline: none;
     transition: border-color 0.4s;
 }
@@ -1419,7 +1419,7 @@ body.loaded .letterbox-bottom {
     top: 14px;
     left: 0;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -1478,7 +1478,7 @@ body.loaded .letterbox-bottom {
 
 .footer-tagline {
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.6;
 }
@@ -1509,7 +1509,7 @@ body.loaded .letterbox-bottom {
 .footer-col p {
     display: block;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     text-decoration: none;
     line-height: 1.8;
@@ -1531,7 +1531,7 @@ body.loaded .letterbox-bottom {
 
 .footer-bottom span {
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-dim);
 }
 
@@ -1542,7 +1542,7 @@ body.loaded .letterbox-bottom {
 
 .footer-legal a {
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-dim);
     text-decoration: none;
     letter-spacing: 2px;
@@ -1559,7 +1559,7 @@ body.loaded .letterbox-bottom {
     align-items: center;
     gap: 8px;
     font-size: 0.8rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     text-decoration: none;
     line-height: 1.8;
@@ -1618,7 +1618,7 @@ body.loaded .letterbox-bottom {
 
 .opportunity-vision {
     font-size: 1.2rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     max-width: 600px;
     margin: 16px auto 0;
@@ -1723,7 +1723,7 @@ body.loaded .letterbox-bottom {
 
 .capital-card p {
     font-size: 0.85rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -1735,7 +1735,7 @@ body.loaded .letterbox-bottom {
 
 .capital-card ul li {
     font-size: 0.85rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.8;
     padding-left: 16px;
@@ -1752,7 +1752,7 @@ body.loaded .letterbox-bottom {
 
 .capital-disclaimer {
     font-size: 0.7rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-dim);
     text-align: center;
     margin-top: 32px;
@@ -1912,7 +1912,7 @@ body.loaded .letterbox-bottom {
 
 .theme-block ul li {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: #111111;
     line-height: 1.8;
     padding-left: 16px;
@@ -1929,7 +1929,7 @@ body.loaded .letterbox-bottom {
 
 .theme-block p {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: #111111;
     line-height: 1.8;
 }
@@ -2044,7 +2044,7 @@ body.loaded .letterbox-bottom {
 
 .credential-item p {
     font-size: 0.9rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text-muted);
     line-height: 1.7;
 }
@@ -2582,7 +2582,7 @@ body.loaded .letterbox-bottom {
 
 .inner-page-hero p {
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text);
     max-width: 600px;
     line-height: 1.7;
@@ -2602,7 +2602,7 @@ body.loaded .letterbox-bottom {
     text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 550;
     transition: color 0.3s;
 }
 
@@ -2615,7 +2615,7 @@ body.loaded .letterbox-bottom {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--amber);
-    font-weight: 300;
+    font-weight: 550;
 }
 
 .breadcrumb .breadcrumb-sep {
@@ -2677,7 +2677,7 @@ body.loaded .letterbox-bottom {
 
 .legal-content p {
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text);
     line-height: 1.8;
     margin-bottom: 16px;
@@ -2691,7 +2691,7 @@ body.loaded .letterbox-bottom {
 
 .legal-content ul li {
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text);
     line-height: 1.8;
     padding-left: 20px;
@@ -2876,7 +2876,7 @@ body.loaded .letterbox-bottom {
     color: var(--text-muted);
     font-size: 0.85rem;
     letter-spacing: 2px;
-    font-weight: 300;
+    font-weight: 550;
 }
 
 .carousel-loading::after {
@@ -2922,7 +2922,7 @@ body.loaded .letterbox-bottom {
 
 .productions-desc {
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     line-height: 1.8;
     color: var(--text);
     margin-bottom: 28px;
@@ -3002,7 +3002,7 @@ body.loaded .letterbox-bottom {
 
 .productions-page-sub {
     font-size: 1.1rem;
-    font-weight: 300;
+    font-weight: 550;
     line-height: 1.7;
     color: #ffffff;
     max-width: 650px;
@@ -3024,7 +3024,7 @@ body.loaded .letterbox-bottom {
 
 .productions-about-text p {
     font-size: 0.95rem;
-    font-weight: 300;
+    font-weight: 550;
     line-height: 1.8;
     color: var(--text);
     margin-top: 20px;
@@ -3083,7 +3083,7 @@ body.loaded .letterbox-bottom {
     color: var(--text-muted);
     font-size: 0.75rem;
     letter-spacing: 2px;
-    font-weight: 300;
+    font-weight: 550;
     transition: all 0.3s var(--ease-out);
 }
 
@@ -3114,7 +3114,7 @@ body.loaded .letterbox-bottom {
 
 .productions-cta-content p {
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 550;
     color: var(--text);
     margin-bottom: 32px;
     max-width: 500px;
