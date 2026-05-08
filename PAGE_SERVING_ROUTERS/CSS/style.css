@@ -1845,6 +1845,166 @@ body.loaded .letterbox-bottom {
   margin-top: 32px;
 }
 
+/* Opportunity Page Visual Enhancements */
+.opp-visual-banner {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.opp-visual-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.opp-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 7, 7, 0.85) 0%,
+    rgba(8, 7, 7, 0.4) 50%,
+    rgba(8, 7, 7, 0.15) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px;
+  text-align: center;
+}
+
+.opp-visual-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.opp-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: 4px;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.opp-stat-sep {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: rgba(255,255,255,0.4);
+}
+
+.opp-visual-caption {
+  font-size: 0.85rem;
+  font-weight: 550;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.opp-card {
+  position: relative;
+  padding: 48px 40px;
+  border: 1px solid rgba(238, 64, 55, 0.15) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(238, 64, 55, 0.03) 100%
+  ) !important;
+  transition:
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    transform 0.4s var(--ease-out) !important;
+  overflow: hidden;
+}
+
+.opp-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--amber);
+  transition: height 0.5s var(--ease-out);
+}
+
+.opp-card:hover {
+  border-color: rgba(238, 64, 55, 0.4) !important;
+  box-shadow: 0 24px 60px rgba(238, 64, 55, 0.08);
+  transform: translateY(-4px);
+}
+
+.opp-card:hover::before {
+  height: 100%;
+}
+
+.opp-card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(238, 64, 55, 0.2);
+  margin-bottom: 28px;
+  color: var(--amber);
+  transition: background 0.4s;
+}
+
+.opp-card:hover .opp-card-icon {
+  background: rgba(238, 64, 55, 0.08);
+}
+
+.opp-capital-card {
+  position: relative;
+  padding-top: 48px !important;
+  overflow: hidden;
+  transition:
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out),
+    transform 0.4s var(--ease-out) !important;
+}
+
+.opp-capital-card:hover {
+  box-shadow: 0 20px 60px rgba(238, 64, 55, 0.1);
+  transform: translateY(-4px);
+  border-color: rgba(238, 64, 55, 0.35) !important;
+}
+
+.opp-capital-num {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  color: rgba(238, 64, 55, 0.08);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  transition: color 0.4s;
+}
+
+.opp-capital-card:hover .opp-capital-num {
+  color: rgba(238, 64, 55, 0.15);
+}
+
+.capital-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+
+
 /* Associates Section */
 .associates {
   padding: 140px 80px;
@@ -1866,16 +2026,18 @@ body.loaded .letterbox-bottom {
 }
 
 .associate-item {
-  padding: 24px 16px;
+  padding: 32px 20px;
   border: 1px solid var(--border);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 110px;
+  gap: 16px;
+  min-height: 160px;
   transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
 }
 
 .associate-item > span:last-child {
@@ -1888,8 +2050,10 @@ body.loaded .letterbox-bottom {
 }
 
 .associate-item:hover {
-  border-color: rgba(238, 64, 55, 0.3);
-  background: var(--amber-soft);
+  border-color: rgba(238, 64, 55, 0.4);
+  background: linear-gradient(135deg, rgba(238,64,55,0.04) 0%, rgba(238,64,55,0.02) 100%);
+  box-shadow: 0 12px 40px rgba(238,64,55,0.08);
+  transform: translateY(-3px);
 }
 
 .associate-item:hover span {
@@ -1897,9 +2061,9 @@ body.loaded .letterbox-bottom {
 }
 
 .associate-logo {
-  width: 60px;
+  width: 100px;
   height: 60px;
-  max-width: 60px;
+  max-width: 100px;
   max-height: 60px;
   object-fit: contain;
   flex-shrink: 0;
@@ -1940,12 +2104,12 @@ body.loaded .letterbox-bottom {
 
 .associate-initials {
   font-family: var(--font-display) !important;
-  font-size: 1.4rem !important;
+  font-size: 2.4rem !important;
   letter-spacing: 3px !important;
   color: var(--text-dim) !important;
   font-weight: 400 !important;
   line-height: 1 !important;
-  height: 32px;
+  height: 60px;
   display: flex !important;
   align-items: center;
   justify-content: center;
