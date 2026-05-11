@@ -1,13 +1,23 @@
 import os
 import time
 from fastapi import FastAPI, Request, Response
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.base import BaseHTTPMiddleware
 from config import config
 from PAGE_SERVING_ROUTERS.ROUTERS.home import router as home_router
 
 app = FastAPI(title=config.APP_NAME, debug=config.DEBUG)
+
+_NOT_FOUND_PAGE = os.path.join("PAGE_SERVING_ROUTERS", "PAGES", "not_found.html")
+
+
+@app.exception_handler(StarletteHTTPException)
+async def not_found_handler(request: Request, exc: StarletteHTTPException):
+    if exc.status_code == 404:
+        return FileResponse(_NOT_FOUND_PAGE, status_code=404)
+    return PlainTextResponse(str(exc.detail), status_code=exc.status_code)
 
 # Dev live-reload: timestamp changes every time uvicorn restarts the server
 _server_start_time = str(time.time())

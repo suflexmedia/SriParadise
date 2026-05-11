@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.sriiparadiise.com/</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.sriiparadiise.com/about</loc>
-        <lastmod>2026-02-28</lastmod>
+        <loc>https://www.sriiparadiise.com/our-story</loc>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://www.sriiparadiise.com/destinations</loc>
-        <lastmod>2026-02-28</lastmod>
+        <loc>https://www.sriiparadiise.com/hospitality-destinations</loc>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.sriiparadiise.com/specialty-restaurants-and-lounges</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.sriiparadiise.com/movies-and-web-series-production</loc>
+        <lastmod>2026-05-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.sriiparadiise.com/opportunity</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.sriiparadiise.com/associates</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://www.sriiparadiise.com/productions</loc>
-        <lastmod>2026-02-28</lastmod>
+        <loc>https://www.sriiparadiise.com/business-and-financial-associates</loc>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.sriiparadiise.com/founder</loc>
-        <lastmod>2026-02-28</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.sriiparadiise.com/leadership-hospitality</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.sriiparadiise.com/privacy</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://www.sriiparadiise.com/terms</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-11</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>

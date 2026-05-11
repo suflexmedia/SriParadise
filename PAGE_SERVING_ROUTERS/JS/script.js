@@ -1,3 +1,119 @@
+(function initPageLoader() {
+    const root = document.documentElement;
+
+    let alreadyVisited = false;
+    try {
+        alreadyVisited = sessionStorage.getItem('sp_visited') === '1';
+    } catch (e) {}
+
+    if (alreadyVisited) {
+        const loader = document.getElementById('pageLoader');
+        if (loader) {
+            loader.classList.add('is-done');
+            loader.style.display = 'none';
+        }
+        root.classList.remove('page-loading');
+        root.classList.add('page-revealed');
+        return;
+    }
+
+    root.classList.add('page-loading');
+
+    function start() {
+        const loader = document.getElementById('pageLoader');
+        if (!loader) {
+            root.classList.remove('page-loading');
+            root.classList.add('page-revealed');
+            try { sessionStorage.setItem('sp_visited', '1'); } catch (e) {}
+            return;
+        }
+
+        const ring = loader.querySelector('.page-loader-ring-fg');
+        const percentEl = loader.querySelector('.page-loader-percent');
+        const CIRC = 2 * Math.PI * 54;
+
+        let progress = 0;
+        let target = 0;
+        let pageReady = false;
+        let finished = false;
+
+        function render(p) {
+            progress = Math.max(0, Math.min(100, p));
+            if (ring) {
+                ring.style.strokeDashoffset = String(CIRC - (CIRC * progress) / 100);
+            }
+            if (percentEl) {
+                percentEl.textContent = String(Math.floor(progress)).padStart(2, '0') + '%';
+            }
+        }
+
+        render(0);
+
+        const totalImgs = Array.from(document.images || []);
+        const trackedImgs = totalImgs.filter((img) => !img.complete);
+        let loadedImgs = totalImgs.length - trackedImgs.length;
+        const imgCount = totalImgs.length || 1;
+
+        function onImgDone() {
+            loadedImgs = Math.min(loadedImgs + 1, imgCount);
+        }
+        trackedImgs.forEach((img) => {
+            img.addEventListener('load', onImgDone, { once: true });
+            img.addEventListener('error', onImgDone, { once: true });
+        });
+
+        const tick = setInterval(() => {
+            const imgProgress = (loadedImgs / imgCount) * 100;
+            const ceiling = pageReady ? 100 : Math.min(92, imgProgress * 0.9 + 12);
+            target = Math.min(100, Math.max(target + 1.2, ceiling));
+
+            if (progress < target) {
+                render(progress + (target - progress) * 0.18);
+            }
+
+            if (pageReady && progress >= 99.4 && !finished) {
+                finished = true;
+                clearInterval(tick);
+                render(100);
+                window.setTimeout(finish, 320);
+            }
+        }, 50);
+
+        function onReady() {
+            pageReady = true;
+            target = 100;
+        }
+        if (document.readyState === 'complete') {
+            onReady();
+        } else {
+            window.addEventListener('load', onReady, { once: true });
+        }
+
+        function finish() {
+            loader.classList.add('is-done');
+            root.classList.remove('page-loading');
+            root.classList.add('page-revealed');
+            try { sessionStorage.setItem('sp_visited', '1'); } catch (e) {}
+            window.setTimeout(() => {
+                loader.style.display = 'none';
+            }, 1200);
+        }
+
+        window.setTimeout(() => {
+            if (!finished) {
+                pageReady = true;
+                target = 100;
+            }
+        }, 8000);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start, { once: true });
+    } else {
+        start();
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const cursorDot = document.getElementById('cursorDot');

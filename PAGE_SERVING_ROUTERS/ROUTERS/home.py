@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Form
-from fastapi.responses import FileResponse, Response, JSONResponse
+from fastapi.responses import FileResponse, Response, JSONResponse, RedirectResponse
 import os
 import smtplib
 from email.mime.text import MIMEText
@@ -21,9 +21,24 @@ async def home():
     return FileResponse(os.path.join(PAGES_DIR, "index.html"))
 
 
-@router.get("/about")
-async def about():
+@router.get("/our-story")
+async def our_story():
     return FileResponse(os.path.join(PAGES_DIR, "about.html"))
+
+
+@router.get("/hospitality-destinations")
+async def hospitality_destinations():
+    return FileResponse(os.path.join(PAGES_DIR, "destinations.html"))
+
+
+@router.get("/specialty-restaurants-and-lounges")
+async def specialty_restaurants_and_lounges():
+    return FileResponse(os.path.join(PAGES_DIR, "restaurants.html"))
+
+
+@router.get("/movies-and-web-series-production")
+async def movies_and_web_series_production():
+    return FileResponse(os.path.join(PAGES_DIR, "productions.html"))
 
 
 @router.get("/opportunity")
@@ -31,19 +46,14 @@ async def opportunity():
     return FileResponse(os.path.join(PAGES_DIR, "opportunity.html"))
 
 
-@router.get("/associates")
-async def associates():
+@router.get("/business-and-financial-associates")
+async def business_and_financial_associates():
     return FileResponse(os.path.join(PAGES_DIR, "associates.html"))
 
 
 @router.get("/founder")
 async def founder():
     return FileResponse(os.path.join(PAGES_DIR, "founder.html"))
-
-
-@router.get("/destinations")
-async def destinations():
-    return FileResponse(os.path.join(PAGES_DIR, "destinations.html"))
 
 
 @router.get("/privacy")
@@ -56,19 +66,24 @@ async def terms():
     return FileResponse(os.path.join(PAGES_DIR, "terms.html"))
 
 
-@router.get("/leadership-hospitality")
-async def leadership_hospitality():
-    return FileResponse(os.path.join(PAGES_DIR, "leadership-hospitality.html"))
+# Backwards-compatible redirects from old URLs to the new ones
+_LEGACY_REDIRECTS = {
+    "/about": "/our-story",
+    "/destinations": "/hospitality-destinations",
+    "/restaurants": "/specialty-restaurants-and-lounges",
+    "/productions": "/movies-and-web-series-production",
+    "/associates": "/business-and-financial-associates",
+}
 
 
-@router.get("/productions")
-async def productions():
-    return FileResponse(os.path.join(PAGES_DIR, "productions.html"))
+def _make_redirect(target: str):
+    async def _redirect():
+        return RedirectResponse(url=target, status_code=301)
+    return _redirect
 
 
-@router.get("/restaurants")
-async def restaurants():
-    return FileResponse(os.path.join(PAGES_DIR, "restaurants.html"))
+for _old, _new in _LEGACY_REDIRECTS.items():
+    router.add_api_route(_old, _make_redirect(_new), methods=["GET"])
 
 
 @router.get("/sitemap.xml")

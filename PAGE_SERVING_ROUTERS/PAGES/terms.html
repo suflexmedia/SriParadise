@@ -72,6 +72,32 @@
   </head>
 
   <body>
+    <div class="page-loader" id="pageLoader" role="status" aria-label="Loading">
+      <div class="page-loader-inner">
+        <svg class="page-loader-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="page-loader-ring-bg" cx="60" cy="60" r="54"></circle>
+          <circle class="page-loader-ring-fg" cx="60" cy="60" r="54"></circle>
+        </svg>
+        <img
+          class="page-loader-logo"
+          src="/images/logos/sriparadise_logo.webp"
+          alt="Srii Paradiise"
+        />
+        <div class="page-loader-percent">00%</div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var visited = false;
+        try { visited = sessionStorage.getItem("sp_visited") === "1"; } catch (e) {}
+        if (visited) {
+          var el = document.getElementById("pageLoader");
+          if (el) el.style.display = "none";
+        } else {
+          document.documentElement.classList.add("page-loading");
+        }
+      })();
+    </script>
     <div class="scroll-progress" id="scrollProgress"></div>
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
@@ -94,27 +120,24 @@
       <div class="menu-bg"></div>
       <div class="menu-content">
         <div class="menu-links">
-          <a href="/about" class="menu-link" data-index="01">Our Story</a>
-          <a href="/destinations" class="menu-link" data-index="02"
+          <a href="/our-story" class="menu-link" data-index="01">Our Story</a>
+          <a href="/hospitality-destinations" class="menu-link" data-index="02"
             >Hospitality Destinations</a
           >
-          <a href="/restaurants" class="menu-link" data-index="03"
-            >Speciality Restaurants &amp; Lounges</a
+          <a href="/specialty-restaurants-and-lounges" class="menu-link" data-index="03"
+            >Specialty Restaurants &amp; Lounges</a
           >
-          <a href="/productions" class="menu-link" data-index="04"
+          <a href="/movies-and-web-series-production" class="menu-link" data-index="04"
             >Movies &amp; Web Series Production</a
           >
           <a href="/opportunity" class="menu-link" data-index="05"
             >Opportunity</a
           >
-          <a href="/associates" class="menu-link" data-index="06"
+          <a href="/business-and-financial-associates" class="menu-link" data-index="06"
             >Business &amp; Financial Associates</a
           >
           <a href="/founder" class="menu-link" data-index="07">Founder</a>
-          <a href="/leadership-hospitality" class="menu-link" data-index="08"
-            >Leadership - Hospitality</a
-          >
-          <a href="/#premiere" class="menu-link" data-index="09">Contact Us</a>
+          <a href="/#premiere" class="menu-link" data-index="08">Contact Us</a>
         </div>
         <div class="menu-footer">
           <a
@@ -311,10 +334,10 @@
         <div class="footer-nav">
           <div class="footer-col">
             <h4>Divisions</h4>
-            <a href="/about">International Hotels &amp; Resorts</a>
-            <a href="/about">International Studios</a>
-            <a href="/productions">Productions</a>
-            <a href="/restaurants">Speciality Restaurants &amp; Lounges</a>
+            <a href="/our-story">International Hotels &amp; Resorts</a>
+            <a href="/our-story">International Studios</a>
+            <a href="/movies-and-web-series-production">Productions</a>
+            <a href="/specialty-restaurants-and-lounges">Specialty Restaurants &amp; Lounges</a>
           </div>
                               <div class="footer-col">
             <h4>Contact</h4>

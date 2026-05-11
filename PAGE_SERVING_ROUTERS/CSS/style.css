@@ -125,15 +125,14 @@ button {
   padding: 28px 48px;
   transition:
     background 0.5s,
-    padding 0.5s,
-    backdrop-filter 0.5s;
+    backdrop-filter 0.5s,
+    box-shadow 0.5s;
 }
 
 .nav.scrolled {
   background: rgba(250, 248, 244, 0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  padding: 18px 48px;
   box-shadow: 0 1px 0 var(--border);
 }
 
@@ -165,18 +164,35 @@ button {
   width: 40px;
   height: 1.25px;
   background: var(--text);
-  transition: all 0.4s var(--ease-out);
+  transition:
+    transform 0.4s var(--ease-out),
+    background 0.4s var(--ease-out);
   transform-origin: center;
 }
 
 .nav-hamburger .nav-menu-text {
   font-size: 0.62rem;
   letter-spacing: 3px;
-  color: var(--text-muted);
+  color: var(--amber);
   font-weight: 550;
   line-height: 1;
-  transition: opacity 0.4s var(--ease-out);
+  transition:
+    opacity 0.4s var(--ease-out),
+    color 0.4s var(--ease-out);
   user-select: none;
+}
+
+/* Revert to dark hamburger when nav has white background or menu is open */
+.nav.scrolled .nav-hamburger .nav-line,
+.nav.scrolled .nav-hamburger span:not(.nav-menu-text),
+body.menu-open .nav-hamburger .nav-line,
+body.menu-open .nav-hamburger span:not(.nav-menu-text) {
+  background: var(--text);
+}
+
+.nav.scrolled .nav-hamburger .nav-menu-text,
+body.menu-open .nav-hamburger .nav-menu-text {
+  color: var(--text-muted);
 }
 
 /* Active / close animation — new structure (.nav-line) */
@@ -1454,6 +1470,114 @@ body.loaded .letterbox-bottom {
   line-height: 1.7;
 }
 
+.premiere-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.premiere-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--text);
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.premiere-contact-item:hover {
+  border-color: var(--amber);
+  background: rgba(200, 57, 43, 0.06);
+  transform: translateX(4px);
+}
+
+.premiere-contact-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(200, 57, 43, 0.28);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.premiere-contact-item:hover .premiere-contact-icon {
+  transform: scale(1.06);
+  box-shadow: 0 8px 22px rgba(200, 57, 43, 0.4);
+}
+
+.premiere-contact-icon--linkedin {
+  background: #0a66c2;
+  box-shadow: 0 6px 18px rgba(10, 102, 194, 0.32);
+}
+
+.premiere-contact-item:hover .premiere-contact-icon--linkedin {
+  box-shadow: 0 8px 22px rgba(10, 102, 194, 0.45);
+}
+
+.premiere-contact-icon--whatsapp {
+  background: #25d366;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.32);
+}
+
+.premiere-contact-item:hover .premiere-contact-icon--whatsapp {
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+
+.premiere-contact-icon svg {
+  display: block;
+}
+
+.premiere-contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.premiere-contact-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.premiere-contact-value {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .premiere-contact-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .premiere-contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .premiere-contact-value {
+    font-size: 0.95rem;
+  }
+}
+
 .premiere-form {
   display: flex;
   flex-direction: column;
@@ -1512,6 +1636,24 @@ body.loaded .letterbox-bottom {
   color: var(--text-muted);
   pointer-events: none;
   transition: all 0.3s var(--ease-out);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-field-icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--amber);
+  transition: color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.form-field input:focus ~ label .form-field-icon,
+.form-field input:not(:placeholder-shown) ~ label .form-field-icon,
+.form-field textarea:focus ~ label .form-field-icon,
+.form-field textarea:not(:placeholder-shown) ~ label .form-field-icon {
+  transform: scale(0.95);
 }
 
 .form-field input:focus ~ label,
@@ -1564,11 +1706,12 @@ body.loaded .letterbox-bottom {
 }
 
 .footer-tagline {
-  font-size: 2.5vw;
+  font-size: 1vw;
   line-height: 1.6;
 }
 
 .footer-tagline-center {
+  font-size: 2vw;
   font-style: italic;
   color: #c8392b;
   text-align: center;
@@ -2394,11 +2537,6 @@ body.loaded .letterbox-bottom {
     padding-top: calc(20px + env(safe-area-inset-top, 0px));
   }
 
-  .nav.scrolled {
-    padding: 14px 24px;
-    padding-top: calc(14px + env(safe-area-inset-top, 0px));
-  }
-
   .nav-logo {
     font-size: 1.1rem;
     letter-spacing: 5px;
@@ -2714,10 +2852,6 @@ body.loaded .letterbox-bottom {
 @media (max-width: 480px) {
   .nav {
     padding: 16px 16px;
-  }
-
-  .nav.scrolled {
-    padding: 12px 16px;
   }
 
   .nav-logo {
@@ -3752,5 +3886,133 @@ body.loaded .letterbox-bottom {
 
   .restaurant-grid-section {
     padding: 0 16px 40px;
+  }
+}
+
+/* ============================================ */
+/* PAGE LOADER                                  */
+/* ============================================ */
+
+html.page-loading,
+html.page-loading body {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  will-change: transform;
+  pointer-events: auto;
+  cursor: default;
+}
+
+html.page-loading body {
+  cursor: default !important;
+}
+
+.page-loader.is-done {
+  transform: translateY(-100%);
+  transition: transform 1.1s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.page-loader-inner {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-loader-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  z-index: 2;
+  animation: page-loader-breathe 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 20px rgba(200, 57, 43, 0.18));
+}
+
+@keyframes page-loader-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+.page-loader-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.page-loader-ring-bg {
+  fill: none;
+  stroke: var(--border-light);
+  stroke-width: 1.5;
+}
+
+.page-loader-ring-fg {
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 339.292;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 0 6px var(--amber-glow));
+}
+
+.page-loader-percent {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+html.page-loading .page-content-reveal,
+.page-content-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+html.page-revealed .page-content-reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader,
+  .page-loader.is-done,
+  .page-loader-logo,
+  .page-loader-ring-fg,
+  .page-content-reveal,
+  html.page-revealed .page-content-reveal {
+    animation: none !important;
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
   }
 }
