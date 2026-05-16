@@ -33,3 +33,13 @@ Thumbs.db
 # Large files
 *.zip
 .rustic
+
+# Node (used for image conversion tooling)
+node_modules/
+package.json
+package-lock.json
+
+# Image conversion scripts (one-off utility scripts)
+convert_all_to_webp.js
+convert_all_to_webp.py
+convert_to_webp.py
