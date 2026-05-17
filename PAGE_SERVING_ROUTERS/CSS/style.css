@@ -3,7 +3,7 @@
   --bg-elevated: #f2ede3;
   --surface: #e8e0d0;
   --text: #1a1410;
-  --text-muted: #f9f9f9;
+  --text-muted: #5a5248;
   --text-dim: #8a7f73;
   --amber: #c8392b;
   --amber-soft: rgba(200, 57, 43, 0.1);
@@ -764,7 +764,7 @@ body.loaded .letterbox-bottom {
 .hero-description {
   font-size: 1.1rem;
   font-weight: 550;
-  color: var(--text-muted);
+  color: var(--bg-elevated);
   line-height: 1.8;
   max-width: 480px;
   margin-bottom: 40px;
