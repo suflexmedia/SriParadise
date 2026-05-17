@@ -492,10 +492,10 @@ body.menu-open .nav-hamburger .nav-menu-text {
   .menu-links {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 8px;
+    gap: 10px;
   }
   .menu-link-card {
-    aspect-ratio: 1;
+    aspect-ratio: unset;
     min-height: 0;
     padding: 12px;
     border-radius: 8px;
@@ -3032,8 +3032,7 @@ body.loaded .letterbox-bottom {
   }
 
   .fullscreen-menu {
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
   }
 
   .menu-bg {
@@ -3041,19 +3040,19 @@ body.loaded .letterbox-bottom {
   }
 
   .menu-content {
-    padding: 80px 24px 40px;
+    padding: 80px 24px 16px;
     justify-content: flex-start;
-    padding-top: calc(90px + env(safe-area-inset-top, 0px));
-    height: auto;
-    min-height: 100%;
-    overflow: visible;
+    padding-top: calc(80px + env(safe-area-inset-top, 0px));
+    height: 100%;
+    overflow: hidden;
   }
 
   .menu-links {
-    gap: 8px;
-    flex: 0 0 auto;
-    align-items: flex-start;
-    margin-bottom: 16px;
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+    margin-bottom: 0;
   }
 
   .menu-link {
@@ -3062,16 +3061,18 @@ body.loaded .letterbox-bottom {
   }
 
   .menu-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 14px;
     padding-bottom: env(safe-area-inset-bottom, 0px);
     flex-shrink: 0;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .menu-footer-row {
     order: 0;
+    flex-shrink: 0;
   }
 
   .menu-footer-divider {
@@ -3230,14 +3231,24 @@ body.loaded .letterbox-bottom {
   }
 
   .menu-content {
-    padding: 70px 16px 20px;
-    padding-top: calc(80px + env(safe-area-inset-top, 0px));
+    padding: 60px 12px 10px;
+    padding-top: calc(70px + env(safe-area-inset-top, 0px));
     overflow: hidden;
   }
 
   .menu-links {
-    gap: 1px;
-    align-items: flex-start;
+    gap: 6px;
+    align-items: stretch;
+  }
+
+  .menu-link-card {
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .menu-card-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
   }
 
   .menu-link {
@@ -3252,13 +3263,14 @@ body.loaded .letterbox-bottom {
   }
 
   .menu-footer {
-    margin-top: 16px;
+    margin-top: 6px;
+    gap: 4px 10px;
   }
 
   .menu-footer-row span,
   .menu-footer-linkedin,
   .menu-footer-location {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .platforms-grid {
