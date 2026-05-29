@@ -1203,27 +1203,27 @@ body.loaded .letterbox-bottom {
 }
 
 .founder-featured-image {
-  width: 90%;
-  max-width: 1400px;
-  height: 34vw;
-  max-height: 480px;
-  border-radius: 12px;
-  object-fit: cover;
-  object-position: 35% 10%;
-  display: inline-block;
-  margin: 0 auto;
+    width: 90%;
+    max-width: 500px;
+    height: 320px;
+    max-height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: 35% 10%;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .founder-featured-caption {
-  width: 90%;
-  max-width: 1400px;
-  margin: 16px auto 0;
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  font-style: italic;
-  color: var(--text-primary, #1a1a1a);
-  text-align: right;
-  letter-spacing: 0.02em;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--text-primary, #1a1a1a);
+    text-align: center;
+    letter-spacing: 0.02em;
 }
 
 .restaurant-grid-section {
