@@ -1,0 +1,61 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# Remove trailing slashes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+
+# Clean URLs - Remove .html extension
+# If the file exists with .html, serve it
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)$ $1.html [L]
+
+# Redirect old routes to new .html pages (for backwards compatibility)
+RewriteRule ^our-story$ our-story.html [L]
+RewriteRule ^hospitality-destinations$ hospitality-destinations.html [L]
+RewriteRule ^specialty-restaurants-and-lounges$ specialty-restaurants-and-lounges.html [L]
+RewriteRule ^movies-and-web-series-production$ movies-and-web-series-production.html [L]
+RewriteRule ^opportunity$ opportunity.html [L]
+RewriteRule ^business-and-financial-associates$ business-and-financial-associates.html [L]
+RewriteRule ^founder$ founder.html [L]
+RewriteRule ^privacy$ privacy.html [L]
+RewriteRule ^terms$ terms.html [L]
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html
+
+# Prevent directory browsing
+Options -Indexes
+
+# Enable compression for better performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser caching for static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Force HTTPS (uncomment when SSL is active)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

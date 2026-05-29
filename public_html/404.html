@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Page Not Found — Srii Paradiise</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .nf-wrap {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg, #0a0a0a);
+        color: var(--text, #f5f3ed);
+        padding: 80px 24px;
+        position: relative;
+        overflow: hidden;
+      }
+      .nf-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("images/Depositphotos-Hotel-Pic-1.webp");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.18;
+        filter: blur(2px);
+        z-index: 0;
+      }
+      .nf-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 10, 10, 0.85) 0%,
+          rgba(10, 10, 10, 0.6) 50%,
+          rgba(10, 10, 10, 0.95) 100%
+        );
+        z-index: 1;
+      }
+      .nf-inner {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 720px;
+      }
+      .nf-eyebrow {
+        font-family: "Source Sans 3", sans-serif;
+        letter-spacing: 6px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--amber, #c8392b);
+        margin-bottom: 24px;
+      }
+      .nf-code {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(7rem, 22vw, 16rem);
+        line-height: 0.9;
+        letter-spacing: 0.04em;
+        margin: 0 0 16px;
+        color: var(--text, #f5f3ed);
+      }
+      .nf-heading {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.6rem);
+        letter-spacing: 0.18em;
+        margin: 0 0 20px;
+      }
+      .nf-text {
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-muted, rgba(245, 243, 237, 0.7));
+        margin: 0 auto 40px;
+        max-width: 520px;
+      }
+      .nf-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .nf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid var(--text, #f5f3ed);
+        color: var(--text, #f5f3ed);
+        background: transparent;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      .nf-btn:hover {
+        background: var(--text, #f5f3ed);
+        color: var(--bg, #0a0a0a);
+      }
+      .nf-btn-primary {
+        background: var(--amber, #c8392b);
+        border-color: var(--amber, #c8392b);
+        color: #fff;
+      }
+      .nf-btn-primary:hover {
+        background: transparent;
+        color: var(--amber, #c8392b);
+      }
+      .nf-divider {
+        width: 60px;
+        height: 1px;
+        background: var(--amber, #c8392b);
+        margin: 0 auto 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="nf-wrap">
+      <div class="nf-bg"></div>
+      <div class="nf-overlay"></div>
+      <div class="nf-inner">
+        <p class="nf-eyebrow">Srii Paradiise</p>
+        <h1 class="nf-code">404</h1>
+        <div class="nf-divider"></div>
+        <h2 class="nf-heading">Page Not Found</h2>
+        <p class="nf-text">
+          The page you are looking for could not be found. It may have been
+          moved, renamed, or it may no longer exist.
+        </p>
+        <div class="nf-actions">
+          <a href="/" class="nf-btn nf-btn-primary">
+            <span>Back to Home</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="/#premiere" class="nf-btn">Contact Us</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

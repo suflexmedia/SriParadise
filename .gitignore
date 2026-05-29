@@ -43,3 +43,6 @@ package-lock.json
 convert_all_to_webp.js
 convert_all_to_webp.py
 convert_to_webp.py
+
+cpanel/
+cpanel.zip
